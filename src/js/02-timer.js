@@ -46,7 +46,7 @@ function onStartBtn() {
         } else {
           startButton.disabled = true;
           currentDate += 1000;
-          remainingTime = Math.floor(selectedDate - currentDate);
+          const remainingTime = Math.floor(selectedDate - currentDate);
           convertMs(remainingTime);
         }
     }, delay)
