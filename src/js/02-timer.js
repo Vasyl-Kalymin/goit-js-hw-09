@@ -13,6 +13,7 @@ const delay = 1000;
 let intervalId = null;
 let selectedDate = null;
 let currentDate = null;
+let remainingTime = 0
 
 const options = {
   enableTime: true,
@@ -46,7 +47,7 @@ function onStartBtn() {
         } else {
           startButton.disabled = true;
           currentDate += 1000;
-          const remainingTime = Math.floor(selectedDate - currentDate);
+          remainingTime = Math.floor(selectedDate - currentDate);
           convertMs(remainingTime);
         }
     }, delay)
