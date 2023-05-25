@@ -1,9 +1,12 @@
+const form = document.querySelector('.form')
 const delay = document.querySelector('[name="delay"]');
 const step = document.querySelector('[name="step"]');
 const amount = document.querySelector('[name="amount"]');
 const buttonCreatePromice = document.querySelector('button[type="submit"]');
+buttonCreatePromice.disabled = true;
 
 buttonCreatePromice.addEventListener('click', clickCreatePromise);
+form.addEventListener('keyup', checkParams);
 
 function createPromise(position, delay) {
   return new Promise((resolve, reject) => {
@@ -17,6 +20,14 @@ function createPromise(position, delay) {
     }, delay);
   });
 }
+
+function checkParams(evt) {
+  if (delay.value.length && step.value.length && amount.value.length) {
+    buttonCreatePromice.disabled = false;
+  } else {
+    buttonCreatePromice.disabled = true
+  }
+};
 
 function clickCreatePromise(evt) {
   evt.preventDefault();
